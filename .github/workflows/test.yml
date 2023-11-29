@@ -1,0 +1,19 @@
+name: Deployment
+on:
+  workflow_dispatch:
+    inputs:
+      ansible-version:
+        description: >-
+          Release Version. Example : 11.1.0
+        required: true
+      ansible-major-version:
+        description: Example 11
+        required: true
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Run server
+        run: echo 'Ansible "${{ inputs.ansible-version }}": Dependencies, changelog and porting guide' 
